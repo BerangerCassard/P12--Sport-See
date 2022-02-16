@@ -1,0 +1,45 @@
+.header{
+    display: flex;
+    background-color: #020203;
+    height: 91px;
+    align-items: center;
+}
+
+.header__logo {
+    width: 178px;
+    padding-left: 20px;
+}
+
+.header__nav {
+    width: 100%;
+}
+
+.header-menu {
+    list-style-type: none;
+    display: flex;
+    color: white;
+    justify-content: center;
+    gap: 190px;
+}
+
+.header-menu li {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.vertical-bar {
+    background-color: #020203;
+    height: 1024px;
+    width: 117px;
+    position: absolute;
+    writing-mode: vertical-lr;
+    text-orientation:  mixed;
+}
+
+.vertical-bar div {
+    color: white;
+    transform: rotate(180deg);
+    margin-left: 34px;
+    text-align: left;
+    margin-bottom: 50px;
+}
