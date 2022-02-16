@@ -11,8 +11,11 @@ class User extends React.Component {
 
 	componentDidMount() {
 		fetch('http://localhost:3000/user/18')
-			.then(res => res.json)
-			.then(user => this.setState({user}), () => console.log('customer fetched'))
+			.then(res => res.json())
+			.then(user => {
+				this.setState({user});
+				console.log('user', this.state.user)
+			})
 	}
 
 	render() {
