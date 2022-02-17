@@ -29,17 +29,27 @@
 
 .vertical-bar {
     background-color: #020203;
-    height: 1024px;
+    height: 936px;
     width: 117px;
     position: absolute;
     writing-mode: vertical-lr;
     text-orientation:  mixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.vertical-bar div {
+.copyright{
     color: white;
     transform: rotate(180deg);
-    margin-left: 34px;
     text-align: left;
-    margin-bottom: 50px;
+}
+
+.miniatures img {
+    width: 64px;
+}
+
+.miniatures {
+    display: flex;
+    gap: 15px;
 }

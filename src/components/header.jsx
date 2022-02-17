@@ -1,5 +1,9 @@
 import '../styles/header.css'
 import logo from '../assets/images/img.png'
+import meditation from '../assets/images/img_1.png'
+import natation from '../assets/images/img_2.png'
+import bicycle from '../assets/images/img_3.png'
+import weight from '../assets/images/img_4.png'
 
 function Header() {
 	return <div>
@@ -15,7 +19,13 @@ function Header() {
 			</nav>
 		</div>
 		<div className='vertical-bar'>
-			<div>Copyright, SportSee 2020</div>
+			<div className='miniatures'>
+				<img src={meditation}/>
+				<img src={natation}/>
+				<img src={bicycle}/>
+				<img src={weight}/>
+			</div>
+			<div className='copyright'>Copyright, SportSee 2020</div>
 		</div>
 	</div>
 }
