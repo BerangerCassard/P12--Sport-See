@@ -10,11 +10,13 @@ function UserStatistics() {
 	const [performance, setPerformance] = useState({})
 
 	useEffect( () => {
-		fetch(`http://localhost:3000/user/${id}`)
+		let controller = new AbortController()
+		fetch(`http://localhost:3000/user/${id}`, {signal: controller.signal})
 			.then(res => res.json())
 			.then(user => {
 				setData(user)
-			})
+			});
+		return () => controller?.abort()
 	}, [] )
 	console.log('user data', data)
 
@@ -26,7 +28,7 @@ function UserStatistics() {
 			})
 		}, []
 	)
-	console.log('activity', activity)
+	//console.log('activity', activity)
 
 	useEffect( () => {
 		fetch(`http://localhost:3000/user/${id}/average-sessions`)
@@ -37,7 +39,7 @@ function UserStatistics() {
 			})
 		}, []
 	)
-	console.log('average sessions', sessions)
+	//console.log('average sessions', sessions)
 
 	useEffect(() => {
 		fetch(`http://localhost:3000/user/${id}/performance`)
@@ -46,7 +48,7 @@ function UserStatistics() {
 				setPerformance(user)
 			})
 	},[] )
-	console.log('performance', performance)
+	//console.log('performance', performance)
 
 	return <div>
 		user statistics {id}
