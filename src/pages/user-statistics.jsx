@@ -5,25 +5,25 @@ import DailyActivity from "../components/daily-activity";
 
 function UserStatistics() {
 	const {id} = useParams()
+
 	const [data, setData] = useState({})
 	const [activity, setActivity] = useState({})
 	const [sessions, setSessions] = useState({})
 	const [performance, setPerformance] = useState({})
 
-
-
 	useEffect( () => {
+		fetch(`http://localhost:3000/user/${id}/activity`)
+			.then(res => res.json())
+			.then(user => {
+				setActivity(user)
+			});
+
 		fetch(`http://localhost:3000/user/${id}`)
 			.then(res => res.json())
 			.then(user => {
 				setData(user)
 			});
 
-		fetch(`http://localhost:3000/user/${id}/activity`)
-			.then(res => res.json())
-			.then(user => {
-				setActivity(user)
-			})
 
 		fetch(`http://localhost:3000/user/${id}/average-sessions`)
 			.then(res => res.json())
@@ -39,11 +39,18 @@ function UserStatistics() {
 			})
 
 	}, [] )
-	//console.log('user data', data)
+	console.log('user data', data.data.userInfos.firstName)
 
 
-	return <div>
+	return <div className='page-wrapper'>
+		<div className='hello-wrapper'>
+			<h1> Bonjour <span className='red'>{data.data.userInfos.firstName}</span></h1>
+			<p>Félicitation ! vous avez explosé vos objectifs hier</p>
+		</div>
+
 		<DailyActivity activityData={activity}/>
+		<br/>
+		<br/>
 		user statistics {id}
 	</div>
 }

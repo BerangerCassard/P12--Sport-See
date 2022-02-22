@@ -1,0 +1,18 @@
+.daily-activity {
+    height: 270px;
+    width: 100px;
+    padding-left: 120px;
+}
+
+.daily-container {
+    height: 320px;
+    width: 835px;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+
+}
+
+.daily-title {
+    text-align: left;
+    margin-left: 130px;
+}
