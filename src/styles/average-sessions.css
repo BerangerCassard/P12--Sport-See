@@ -1,0 +1,12 @@
+.sessions-container {
+    width: 258px;
+    height: 263px;
+    background-color: #FF0000;
+    border-radius: 5px;
+}
+
+.sessions-title {
+    color: white;
+    font-size: 15px;
+    position: relative;
+}

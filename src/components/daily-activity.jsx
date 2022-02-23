@@ -13,7 +13,9 @@ function DailyActivity (props) {
 		//console.log('props', props.activityData)
 		return <div className='daily-container'>
 			<h2 className='daily-title'>Activité quotidienne</h2>
-			<ResponsiveContainer width='66%'  className='daily-activity'>
+			<ResponsiveContainer
+				width='100%'
+				className='daily-activity'>
 				<BarChart
 					width={500}
 					height={300}

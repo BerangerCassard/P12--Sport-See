@@ -2,6 +2,8 @@ import '../styles/user-statistics.css'
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import DailyActivity from "../components/daily-activity";
+import AverageSessions from "../components/average-sessions";
+import Radar from "../components/radar";
 
 function UserStatistics() {
 	const {id} = useParams()
@@ -39,19 +41,20 @@ function UserStatistics() {
 			})
 
 	}, [] )
-	console.log('user data', data.data.userInfos.firstName)
+	// console.log('user data', data.data.userInfos.firstName)
 
 
 	return <div className='page-wrapper'>
 		<div className='hello-wrapper'>
-			<h1> Bonjour <span className='red'>{data.data.userInfos.firstName}</span></h1>
+			{/*<h1> Bonjour <span className='red'>{data.data.userInfos.firstName}</span></h1>*/}
 			<p>Félicitation ! vous avez explosé vos objectifs hier</p>
 		</div>
 
 		<DailyActivity activityData={activity}/>
 		<br/>
+		<AverageSessions sessionsData={sessions}/>
 		<br/>
-		user statistics {id}
+		<Radar performanceData={performance}/>
 	</div>
 }
 
