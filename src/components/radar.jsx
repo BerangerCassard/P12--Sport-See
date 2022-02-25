@@ -3,8 +3,8 @@ import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, CartesianGrid, Toolt
 
 
 function Radar(props) {
-	console.log(props.performanceData.data.data)
 
+	//console.log(props.performanceData.data.data)
 	if(Object.keys(props.performanceData).length > 0) {
 		return <div className='radar-container'>
 			<ResponsiveContainer

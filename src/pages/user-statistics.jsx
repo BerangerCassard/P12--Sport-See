@@ -4,6 +4,8 @@ import {useEffect, useState} from "react";
 import DailyActivity from "../components/daily-activity";
 import AverageSessions from "../components/average-sessions";
 import Radar from "../components/radar";
+import Score from "../components/score";
+import Calories from "../components/calories";
 
 function UserStatistics() {
 	const {id} = useParams()
@@ -49,12 +51,22 @@ function UserStatistics() {
 			{/*<h1> Bonjour <span className='red'>{data.data.userInfos.firstName}</span></h1>*/}
 			<p>Félicitation ! vous avez explosé vos objectifs hier</p>
 		</div>
+		<div className="statistics-container">
+			<div>
+				<DailyActivity activityData={activity}/>
+				<br/>
+				<div className='substatistics'>
+					<AverageSessions sessionsData={sessions}/>
+					<Radar performanceData={performance}/>
+					<Score scoreData={data}/>
+				</div>
+			</div>
+			<div>
+				<Calories caloriesData={data}/>
+			</div>
+		</div>
 
-		<DailyActivity activityData={activity}/>
-		<br/>
-		<AverageSessions sessionsData={sessions}/>
-		<br/>
-		<Radar performanceData={performance}/>
+
 	</div>
 }
 
