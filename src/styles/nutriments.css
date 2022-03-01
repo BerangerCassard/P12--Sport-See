@@ -1,0 +1,35 @@
+.nutriment-logo {
+    width: 60px;
+    height: 60px;
+}
+
+.nutriment-wrapper {
+    display: flex;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    align-items: center;
+    padding: 31px 37px;
+}
+
+.description-wrapper {
+    padding-left: 15px;
+}
+
+.title {
+    margin: 5px 0;
+}
+
+.subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #74798C ;
+    margin: 5px 0;
+}
+
+.nutriments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+    padding-left: 22px;
+    margin-top: 20px;
+}

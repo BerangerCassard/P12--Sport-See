@@ -5,7 +5,7 @@ import DailyActivity from "../components/daily-activity";
 import AverageSessions from "../components/average-sessions";
 import Radar from "../components/radar";
 import Score from "../components/score";
-import Calories from "../components/calories";
+import Nutriments from "../components/nutriments";
 
 function UserStatistics() {
 	const {id} = useParams()
@@ -61,9 +61,8 @@ function UserStatistics() {
 					<Score scoreData={data}/>
 				</div>
 			</div>
-			<div>
-				<Calories caloriesData={data}/>
-			</div>
+			<Nutriments caloriesData={data}/>
+
 		</div>
 
 

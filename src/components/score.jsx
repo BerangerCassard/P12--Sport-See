@@ -1,23 +1,29 @@
 import '../styles/score.css';
 import {RadialBarChart, PolarAngleAxis, RadialBar, YAxis, ResponsiveContainer, CartesianGrid, Tooltip, Bar, BarChart, Legend} from "recharts";
 
-
+/**
+ *
+ * @param props
+ * @return {JSX.Element}
+ * @constructor
+ */
 function Score(props) {
 
-	//console.log(props.scoreData.data.todayScore)
-	if(Object.keys(props).length > 0) {
-		console.log(props)
+
+	if(Object.keys(props.scoreData).length > 0) {
+		//console.log('good', props.scoreData.data.todayScore)
 		return <div className='score-container'>
 			<ResponsiveContainer
 				width="100%"
-				height="100%">
+				height="100%"
+			>
 				<RadialBarChart
 					cx="50%"
 					cy="55%"
 					innerRadius="70%"
 					outerRadius="80%"
 					barSize={16}
-					data={props.scoreData.data}
+					data={props.scoreData.data.todayScore}
 					startAngle={90}
 					endAngle={450}
 				>

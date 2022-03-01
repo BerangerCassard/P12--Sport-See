@@ -1,11 +1,16 @@
 import '../styles/radar.css'
-import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, CartesianGrid, Tooltip, Bar, BarChart, Legend, RadarChart, PolarGrid, PolarRadiusAxis,PolarAngleAxis} from "recharts";
+import {LineChart, Line, XAxis, YAxis,RadialBar, ResponsiveContainer, CartesianGrid, Tooltip, Bar, BarChart, Legend, RadarChart, PolarGrid, PolarRadiusAxis,PolarAngleAxis} from "recharts";
 
-
+/**
+ *
+ * @param props
+ * @return {JSX.Element}
+ * @constructor
+ */
 function Radar(props) {
 
-	//console.log(props.performanceData.data.data)
 	if(Object.keys(props.performanceData).length > 0) {
+		console.log('radar', props.performanceData.data.data)
 		return <div className='radar-container'>
 			<ResponsiveContainer
 				width="100%"
@@ -26,8 +31,9 @@ function Radar(props) {
 						tickLine={false}
 					/>
 					<Radar
+						name='bob'
 						dataKey="value"
-						fill="#FF0101"
+						fill="#00000"
 						fillOpacity={0.8}
 					/>
 				</RadarChart>
