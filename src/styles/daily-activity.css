@@ -15,3 +15,16 @@
     text-align: left;
     margin-left: 130px;
 }
+
+.custom-tooltip {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: .1em 1em;
+    line-height: 2em;
+    margin-left: 2em;
+}
+
+.custom-tooltip-text {
+    font-size: 12px;
+}

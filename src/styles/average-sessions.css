@@ -3,10 +3,15 @@
     height: 263px;
     background-color: #FF0000;
     border-radius: 5px;
+    position: relative;
 }
 
 .sessions-title {
     color: white;
     font-size: 15px;
-    position: relative;
+    position: absolute;
+    left: 10px;
+    opacity: 50.4%;
+    width: 147px;
+    text-align: left;
 }

@@ -2,4 +2,23 @@
     width: 258px;
     height: 263px;
     background-color: #FBFBFB;
+    position: relative;
+}
+
+.score-title {
+    font-size: 15px;
+    position: absolute;
+    left: 25px;
+    top: 15px;
+}
+
+.score-result {
+    position: absolute;
+    top: 30%;
+    left: 32%;
+}
+
+.description {
+    width: 95px;
+    color: #74798C;
 }

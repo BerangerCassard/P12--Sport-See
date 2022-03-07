@@ -1,5 +1,5 @@
 import '../styles/score.css';
-import {RadialBarChart, PolarAngleAxis, RadialBar, YAxis, ResponsiveContainer, CartesianGrid, Tooltip, Bar, BarChart, Legend} from "recharts";
+import {RadialBarChart, PolarAngleAxis, RadialBar, ResponsiveContainer} from "recharts";
 
 /**
  *
@@ -11,8 +11,13 @@ function Score(props) {
 
 
 	if(Object.keys(props.scoreData).length > 0) {
-		//console.log('good', props.scoreData.data.todayScore)
+		//console.log('good', props.scoreData.data)
 		return <div className='score-container'>
+			<h2 className='score-title'>Score</h2>
+			<div className='score-result'>
+				<h2>12%</h2>
+				<p className='description'>de votre objectif</p>
+			</div>
 			<ResponsiveContainer
 				width="100%"
 				height="100%"
@@ -20,10 +25,12 @@ function Score(props) {
 				<RadialBarChart
 					cx="50%"
 					cy="55%"
-					innerRadius="70%"
-					outerRadius="80%"
+					width={500}
+					height={300}
+					innerRadius={80}
+					outerRadius={140}
 					barSize={16}
-					data={props.scoreData.data.todayScore}
+					data={[{score: 80}]}
 					startAngle={90}
 					endAngle={450}
 				>
@@ -35,8 +42,9 @@ function Score(props) {
 					/>
 					<RadialBar
 						minAngle={15}
-						dataKey="todayScore"
+						dataKey="score"
 						cornerRadius={50}
+						fill='#FF0101'
 					/>
 				</RadialBarChart>
 			</ResponsiveContainer>

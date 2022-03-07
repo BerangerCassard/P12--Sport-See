@@ -8,8 +8,32 @@ import '../styles/daily-activity.css'
  * @constructor
  */
 
+const CustomTooltip = ({active, payload, label}) => {
+	if(active && payload && payload.length) {
+		return (
+			<div className="custom-tooltip">
+				<p className="custom-tooltip-text">{`${payload[0].value}kg`}</p>
+				<p className="custom-tooltip-text">{`${payload[1].value}kCal`}</p>
+			</div>
+		)
+	}
+	return null
+}
 function DailyActivity (props) {
+
+	function dateToNumber() {
+		let i
+		for(i=0; i<props.activityData.data.sessions.length; i++) {
+			props.activityData.data.sessions[i].day = i+1
+		}
+	}
+
 	if(Object.keys(props.activityData).length > 0) {
+
+		dateToNumber();
+
+
+
 		//console.log('props', props.activityData)
 		return <div className='daily-container'>
 			<h2 className='daily-title'>Activité quotidienne</h2>
@@ -36,7 +60,7 @@ function DailyActivity (props) {
 					<YAxis
 						orientation='right'
 						tickCount={3}/>
-					<Tooltip/>
+					<Tooltip content={<CustomTooltip/>}/>
 					<Legend
 						verticalAlign="top"
 						align='right'

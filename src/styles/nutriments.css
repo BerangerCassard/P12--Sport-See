@@ -29,7 +29,7 @@
 .nutriments-container {
     display: flex;
     flex-direction: column;
-    gap: 31px;
+    gap: 38px;
     padding-left: 22px;
     margin-top: 20px;
 }

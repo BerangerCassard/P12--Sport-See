@@ -1,5 +1,5 @@
 import '../styles/radar.css'
-import {LineChart, Line, XAxis, YAxis,RadialBar, ResponsiveContainer, CartesianGrid, Tooltip, Bar, BarChart, Legend, RadarChart, PolarGrid, PolarRadiusAxis,PolarAngleAxis} from "recharts";
+import {LineChart, Line, XAxis, YAxis,RadialBar,Radar, ResponsiveContainer, CartesianGrid, Tooltip, Bar, BarChart, Legend, RadarChart, PolarGrid, PolarRadiusAxis,PolarAngleAxis} from "recharts";
 
 /**
  *
@@ -7,10 +7,19 @@ import {LineChart, Line, XAxis, YAxis,RadialBar, ResponsiveContainer, CartesianG
  * @return {JSX.Element}
  * @constructor
  */
-function Radar(props) {
+function RadarStats(props) {
+
+	function numbersToStats() {
+		const stats = ['Intensité', 'Vitesse', 'Force', 'Endurance', 'Energie', 'Cardio']
+		let i
+		for (i=0; i<stats.length; i++) {
+			props.performanceData.data.data[i].kind = stats[i]
+		}
+	}
 
 	if(Object.keys(props.performanceData).length > 0) {
-		console.log('radar', props.performanceData.data.data)
+		numbersToStats()
+		//console.log('radar', props.performanceData.data.data)
 		return <div className='radar-container'>
 			<ResponsiveContainer
 				width="100%"
@@ -33,7 +42,7 @@ function Radar(props) {
 					<Radar
 						name='bob'
 						dataKey="value"
-						fill="#00000"
+						fill="#FF0101"
 						fillOpacity={0.8}
 					/>
 				</RadarChart>
@@ -45,4 +54,4 @@ function Radar(props) {
 
 }
 
-export default Radar
+export default RadarStats

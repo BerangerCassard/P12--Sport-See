@@ -4,22 +4,34 @@ import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, CartesianGrid, Toolt
 
 function AverageSessions(props) {
 
+	function numbersToWeekDays () {
+		const weekDays = ["L", 'M', 'M', 'J', 'V', 'S', 'D']
+		let i
+		for(i=0; i<weekDays.length; i++) {
+			props.sessionsData.data.sessions[i].day = weekDays[i]
+		}
+	}
+
 	//console.log('props', props.sessionsData)
 	if(Object.keys(props.sessionsData).length > 0){
+
+		numbersToWeekDays()
+
 		return <div className='sessions-container'>
 			<h2 className='sessions-title'>Durée moyenne des sessions</h2>
 			<ResponsiveContainer
 				width="100%"
-				height="100%">
+				height="100%"
+			>
 				<LineChart
 					width={500}
 					height={300}
 					data={props.sessionsData.data.sessions}
 					margin={{
-						top: 5,
-						right: 30,
-						left: 0,
-						bottom: 40,
+						top: 40,
+						right: 10,
+						left: 10,
+						bottom: 30,
 					}}
 				>
 					<XAxis
