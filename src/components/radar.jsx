@@ -1,8 +1,9 @@
 import '../styles/radar.css'
 import {LineChart, Line, XAxis, YAxis,RadialBar,Radar, ResponsiveContainer, CartesianGrid, Tooltip, Bar, BarChart, Legend, RadarChart, PolarGrid, PolarRadiusAxis,PolarAngleAxis} from "recharts";
+import PropTypes from 'prop-types';
+
 
 /**
- *
  * @param props
  * @return {JSX.Element}
  * @constructor
@@ -52,6 +53,10 @@ function RadarStats(props) {
 		return <div> </div>
 	}
 
+}
+
+RadarStats.propTypes = {
+	performanceData : PropTypes.object
 }
 
 export default RadarStats

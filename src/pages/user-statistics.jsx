@@ -6,6 +6,7 @@ import AverageSessions from "../components/average-sessions";
 import RadarStats from "../components/radar";
 import Score from "../components/score";
 import Nutriments from "../components/nutriments";
+import Model from "../model/model";
 
 function UserStatistics() {
 	const {id} = useParams()
@@ -44,6 +45,14 @@ function UserStatistics() {
 
 	}, [] )
 	//console.log('user data', data.data)
+
+	const test = () => {
+		const A = new Model(id)
+		const B = A.dataMethod()
+		console.log(B)
+	}
+
+	test()
 
 	if(Object.keys(data).length > 0) {
 		return <div className='page-wrapper'>

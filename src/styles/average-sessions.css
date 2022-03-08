@@ -15,3 +15,11 @@
     width: 147px;
     text-align: left;
 }
+
+.custom-tooltip-sessions {
+    background-color: white;
+    color: #020203;
+    text-align: center;
+    margin-left: 2em;
+    padding: 3px 10px;
+}

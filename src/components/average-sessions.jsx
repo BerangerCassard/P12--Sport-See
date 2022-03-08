@@ -1,7 +1,32 @@
 import '../styles/average-sessions.css';
 import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, CartesianGrid, Tooltip, Legend} from "recharts";
+import PropTypes from 'prop-types';
 
+/**
+ * @param active
+ * @param payload
+ * @param label
+ * @return {JSX.Element|null}
+ * @constructor
+ */
+const CustomTooltip = ({ active, payload, label }) => {
+	if (active && payload && payload.length) {
+		return (
+			<div className="custom-tooltip-sessions">
+				<p className="label">{`${payload[0].value} min`}</p>
+			</div>
+		);
+	}
 
+	return null;
+};
+
+/**
+ *
+ * @param props
+ * @return {JSX.Element}
+ * @constructor
+ */
 function AverageSessions(props) {
 
 	function numbersToWeekDays () {
@@ -40,7 +65,7 @@ function AverageSessions(props) {
 						tickLine={false}
 						tick={{fill: "white", fontSize: "12", dy: 20}}
 					/>
-					<Tooltip />
+					<Tooltip content={<CustomTooltip />} />
 					<Line
 						type="monotone"
 						dataKey="sessionLength"
@@ -57,8 +82,10 @@ function AverageSessions(props) {
 
 		</div>
 	}
+}
 
-
+AverageSessions.propTypes = {
+	sessionsData : PropTypes.object
 }
 
 export default AverageSessions

@@ -1,17 +1,20 @@
 import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, CartesianGrid, Tooltip, Bar, BarChart, Legend} from "recharts";
 import {useEffect} from "react";
 import '../styles/daily-activity.css'
+import PropTypes from 'prop-types';
+
 
 /**
- * @param props
- * @return {JSX.Element}
+ * @param active
+ * @param payload
+ * @param label
+ * @return {JSX.Element|null}
  * @constructor
  */
-
 const CustomTooltip = ({active, payload, label}) => {
 	if(active && payload && payload.length) {
 		return (
-			<div className="custom-tooltip">
+			<div className="custom-tooltip-activity">
 				<p className="custom-tooltip-text">{`${payload[0].value}kg`}</p>
 				<p className="custom-tooltip-text">{`${payload[1].value}kCal`}</p>
 			</div>
@@ -19,6 +22,12 @@ const CustomTooltip = ({active, payload, label}) => {
 	}
 	return null
 }
+
+/**
+ * @param props
+ * @return {JSX.Element}
+ * @constructor
+ */
 function DailyActivity (props) {
 
 	function dateToNumber() {
@@ -91,8 +100,10 @@ function DailyActivity (props) {
 
 		</div>
 	}
+}
 
-
+DailyActivity.propTypes  = {
+	activityData : PropTypes.object
 }
 
 export default DailyActivity
