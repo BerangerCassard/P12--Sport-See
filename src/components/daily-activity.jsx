@@ -65,6 +65,7 @@ function DailyActivity (props) {
 						vertical={false}/>
 					<XAxis
 						dataKey='day'
+						height={30}
 					/>
 					<YAxis
 						orientation='right'

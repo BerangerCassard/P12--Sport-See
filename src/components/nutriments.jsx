@@ -3,6 +3,7 @@ import calories from '../assets/images/calories.png'
 import protein from '../assets/images/protein.png'
 import glucides from '../assets/images/glucides.png'
 import lipides from '../assets/images/lipides.png'
+import NumberUtil from "../Utils/numberUtil";
 
 
 function Nutriments(props) {
@@ -13,7 +14,7 @@ function Nutriments(props) {
 			<div className='nutriment-wrapper'>
 				<img className='nutriment-logo' src={calories}/>
 				<div className='description-wrapper'>
-					<h3 className='title'>{props.caloriesData.data.keyData.calorieCount}kCal</h3>
+					<h3 className='title'>{NumberUtil.numberWithCommas(props.caloriesData.data.keyData.calorieCount)}kCal</h3>
 					<p className='subtitle'>Calories</p>
 				</div>
 			</div>

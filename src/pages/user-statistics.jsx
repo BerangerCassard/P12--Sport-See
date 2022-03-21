@@ -6,7 +6,7 @@ import AverageSessions from "../components/average-sessions";
 import RadarStats from "../components/radar";
 import Score from "../components/score";
 import Nutriments from "../components/nutriments";
-import Model from "../model/model";
+import UserModel from "../model/UserModel";
 
 function UserStatistics() {
 	const {id} = useParams()
@@ -17,42 +17,34 @@ function UserStatistics() {
 	const [performance, setPerformance] = useState({})
 
 	useEffect( () => {
-		fetch(`http://localhost:3000/user/${id}/activity`)
-			.then(res => res.json())
+
+		UserModel
+			.fetchUserFromAPI(id, 'activity')
 			.then(user => {
 				setActivity(user)
-			});
-
-		fetch(`http://localhost:3000/user/${id}`)
-			.then(res => res.json())
-			.then(user => {
-				setData(user)
-			});
-
-
-		fetch(`http://localhost:3000/user/${id}/average-sessions`)
-			.then(res => res.json())
-			.then(user => {
-				setSessions(user)
-
 			})
 
-		fetch(`http://localhost:3000/user/${id}/performance`)
-			.then(res => res.json())
+		UserModel
+			.fetchUserFromAPI(id)
+			.then(user => {
+				setData(user)
+				console.log(user)
+			})
+
+		UserModel
+			.fetchUserFromAPI(id, 'average-sessions')
+			.then(user => {
+				setSessions(user)
+			})
+
+		UserModel
+			.fetchUserFromAPI(id, 'performance')
 			.then(user => {
 				setPerformance(user)
 			})
 
 	}, [] )
 	//console.log('user data', data.data)
-
-	const test = () => {
-		const A = new Model(id)
-		const B = A.dataMethod()
-		console.log(B)
-	}
-
-	test()
 
 	if(Object.keys(data).length > 0) {
 		return <div className='page-wrapper'>

@@ -1,6 +1,8 @@
 import '../styles/average-sessions.css';
 import {LineChart, Line, XAxis, YAxis, ResponsiveContainer, CartesianGrid, Tooltip, Legend} from "recharts";
 import PropTypes from 'prop-types';
+import ModelA from "../model/fetch";
+import UserModel from "../model/UserModel";
 
 /**
  * @param active
@@ -29,6 +31,18 @@ const CustomTooltip = ({ active, payload, label }) => {
  */
 function AverageSessions(props) {
 
+
+	// const test = () => {
+	// 	const A = new ModelA('3')
+	// 	console.log("A", A)
+	// 	const B = A.getData()
+	// 	console.log('b', B)
+	// }
+	//
+	// test()
+
+	//const a = UserModel('12').fetchUserFromAPI()
+
 	function numbersToWeekDays () {
 		const weekDays = ["L", 'M', 'M', 'J', 'V', 'S', 'D']
 		let i
@@ -43,6 +57,7 @@ function AverageSessions(props) {
 		numbersToWeekDays()
 
 		return <div className='sessions-container'>
+			{/*{UserModel.fetchUserFromAPI()}*/}
 			<h2 className='sessions-title'>Durée moyenne des sessions</h2>
 			<ResponsiveContainer
 				width="100%"
@@ -53,7 +68,7 @@ function AverageSessions(props) {
 					height={300}
 					data={props.sessionsData.data.sessions}
 					margin={{
-						top: 40,
+						top: 80,
 						right: 10,
 						left: 10,
 						bottom: 30,
@@ -67,7 +82,7 @@ function AverageSessions(props) {
 					/>
 					<Tooltip content={<CustomTooltip />} />
 					<Line
-						type="monotone"
+						type="basis"
 						dataKey="sessionLength"
 						stroke="#FFFFFF"
 						strokeWidth={2}

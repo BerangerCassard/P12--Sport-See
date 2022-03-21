@@ -32,9 +32,9 @@ function RadarStats(props) {
 					data={props.performanceData.data.data}
 					width={220}
 					height={220}
-					margin={{top: 5, right: 20, left: 0, bottom: 5}}
+					margin={{top: 0, right: 0, left: 0, bottom: 0}}
 				>
-					<PolarGrid />
+					<PolarGrid/>
 					<PolarAngleAxis
 						dataKey="kind"
 						tick={{fill: 'white', fontSize: '10px'}}
